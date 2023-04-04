@@ -56,6 +56,9 @@ docker-compose\nginx\cockpit.conf
 docker-compose up -d
 ```
 
+当你启动成功之后你需要，打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目,然后按照提示设置账户名和密码，一定要快，他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose start`
+
+
 #### Portainer是什么？
 
 Portainer是一款免费且开源的容器管理工具，可以用来简化Docker容器的部署、管理和监控。Portainer提供一个易于使用的Web UI，使用户能够轻松地管理单个Docker主机或群集中的多个Docker节点。Portainer支持几乎所有Docker API，并为容器、镜像、网络、卷等对象提供了可视化的管理界面。此外，Portainer还支持Swarm模式，并提供了一些高级功能，如模板和堆栈管理、访问控制等。
