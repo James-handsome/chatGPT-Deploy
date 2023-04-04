@@ -1,6 +1,6 @@
 ### 部署教程
 
-1.将本目录 chatgpt 放置在你linux 服务器的 /home/ 下面, 如图所示
+1.将本目录放置在你linux 服务器的 /home/chatgpt 下面, 如图所示
 推荐和我放置在同一目录
 
 <img src="./pathDemo.png" alt="Alt text" title="Optional title"/>
