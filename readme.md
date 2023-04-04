@@ -5,10 +5,14 @@
 
 <img src="./pathDemo.png" alt="Alt text" title="Optional title"/>
 
+#### 服务器环境准备
+
+准备好一台Linux服务器，安装好 Docker 和 Docker-Compose ，并且开放 80 和 443 端口
+
 
 #### 准备工作
 
-1.申请好域名和ssl证书,并且做好域名解析
+1.申请好域名和` ssl `证书, 并且做好域名解析
 - 以下是推荐解析
 - chat.example.com  解析到你的服务器ip 用于部署 chatgpt-web
 - pt.example.com    解析到你的服务器ip 用于部署 portainer
@@ -56,7 +60,7 @@ docker-compose\nginx\cockpit.conf
 docker-compose up -d
 ```
 
-当你启动成功之后你需要，打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目,然后按照提示设置账户名和密码，一定要快，他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose start`
+当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，然后按照提示设置账户名和密码，一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose start`
 
 
 #### Portainer是什么？
