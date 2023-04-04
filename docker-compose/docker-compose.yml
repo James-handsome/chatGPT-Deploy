@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  portainer-ce:
+    image: portainer/portainer-ce
+    networks:
+      chatgpt_network:
+        ipv4_address: 172.20.0.9 #此处的作用是为容器分配一个固定的容器内网IP地址
+    container_name: portainer-ce
+    restart: always
+    expose:
+      - '9000'  
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+  app:
+    image: chenzhaoyu94/chatgpt-web # 总是使用latest,更新时重新pull该tag镜像即可
+    networks:
+      chatgpt_network:
+        ipv4_address: 172.20.0.2
+
+    expose:
+      - 3002
+    environment:
+      # 二选一
+      OPENAI_API_KEY: xxxx  # 填入你的APIkey
+      OPENAI_API_MODEL: gpt-3.5-turbo 
+      AUTH_SECRET_KEY: 123456 # 设置你的授权密码，防止被刷 tokens 消耗你的额度
+      TIMEOUT_MS: 60000
+      
+  nginx:
+    image: nginx:latest
+    networks:
+      chatgpt_network:
+        ipv4_address: 172.20.0.3
+    ports:
+      - '80:80'
+      - '443:443'
+    expose:
+      - '80'
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/portainer.conf:/etc/nginx/conf.d/portainer.conf
+      - ./nginx/cockpit.conf:/etc/nginx/conf.d/cockpit.conf
+      - /home/chatgpt/docker-compose/nginx/ssl:/etc/nginx/ssl
+      - /home/chatgpt/docker-compose/nginx/portainer_ssl:/etc/nginx/portainerSSL
+    depends_on:
+      - app
+
+volumes:
+  portainer_data:
+
+networks:
+  chatgpt_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16 # 指定自定义网络的子网范围
+
+
+
+
+
+      
