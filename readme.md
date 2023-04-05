@@ -12,8 +12,8 @@
 ```yml
 # 此处有安装教程
 https://yeasy.gitbook.io/docker_practice/install/ubuntu
-
 ```
+
 以下是快速安装Docker和Docker Compose的步骤：
 
 1. 安装Docker
