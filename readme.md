@@ -21,7 +21,7 @@
 
 3.把 Portainer 容器管理工具项目的证书和私钥放置在   `docker-compose\nginx\portainer_ssl` 目录下
 
-注意：如果你的文件目录和我的位置不一样的情况你需要自行修改 docker-compose.yml -volumes 挂载的数据卷目录，如何和我的保持一致，你不需要修改，省很多事
+注意：如果你的文件目录和我的位置不一样的情况你需要自行修改 docker-compose.yml -volumes 挂载的数据卷目录，和我的保持一致，你不需要修改，省很多事
 
 ```yml
  volumes:
