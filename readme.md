@@ -9,17 +9,106 @@
 
 准备好一台Linux服务器，安装好 Docker 和 Docker-Compose ，并且开放 80 和 443 端口
 
+以下是快速安装Docker和Docker Compose的步骤：
 
-#### 准备工作
+1. 安装Docker
 
-1.申请好域名和` ssl `证书, 并且做好域名解析
-- 以下是推荐解析
+在Ubuntu上，可以使用以下命令安装Docker：
+
+```
+sudo apt update
+sudo apt install docker.io
+```
+
+在CentOS上，可以使用以下命令安装Docker：
+
+```
+sudo yum install docker
+```
+
+在macOS上，可以使用Homebrew包管理器来安装Docker：
+
+```
+brew install docker
+```
+
+2. 启动Docker服务
+
+在安装完Docker后，可以使用以下命令启动Docker服务：
+
+```
+sudo systemctl start docker   # Ubuntu/CentOS
+open /Applications/Docker.app # macOS
+```
+
+3. 安装Docker Compose
+
+在Linux系统上，可以使用以下命令安装Docker Compose：
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+在macOS上，可以使用以下命令安装Docker Compose：
+
+```
+brew install docker-compose
+```
+
+4. 检查安装
+
+最后，您可以使用以下命令检查Docker和Docker Compose是否成功安装：
+
+```
+docker --version
+docker-compose --version
+```
+
+如果这些命令都输出了版本信息，则表示Docker和Docker Compose已经成功安装并准备好使用了。
+
+
+#### 域名和证书准备
+
+1.申请域名，推荐 https://www.namesilo.com/ 去这里申请，价格很低
+
+2.做好域名解析， 以下是推荐解析
 - chat.example.com  解析到你的服务器ip 用于部署 chatgpt-web
 - pt.example.com    解析到你的服务器ip 用于部署 portainer
 
-2.把chatgpt-web 项目的证书和私钥放置在 `docker-compose\nginx\ssl` 目录下
+3.使用acme申请`ssl`证书
 
-3.把 Portainer 容器管理工具项目的证书和私钥放置在   `docker-compose\nginx\portainer_ssl` 目录下
+```sh
+# 安装acme
+curl https://get.acme.sh | sh
+# 添加软链接
+ln -s /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
+# 切换CA机构
+acme.sh --set-default-ca --server letsencrypt
+# 申请证书
+acme.sh --issue -d 域名 --standalone --keylength ec-256
+# 安装证书
+acme.sh --install-cert -d 域名 --ecc --fullchain-file /etc/ssl/private/fullchain.cer --key-file /etc/ssl/private/private.key
+
+这是使用acme.sh（一个开源的ACME客户端）来安装SSL证书的命令，具体含义如下：
+
+--install-cert：用于安装证书。
+-d 域名：指定要为其申请和安装证书的域名。
+--ecc：表示生成椭圆曲线加密算法（ECC）证书。
+--fullchain-file /etc/ssl/private/fullchain.cer：将服务器的完整证书链保存到指定的文件路径。
+--key-file /etc/ssl/private/private.key：将私钥保存到指定的文件路径。
+
+综合起来，该命令的作用是在服务器上为指定域名安装ECC SSL证书，并将完整证书链保存到/etc/ssl/private/fullchain.cer文件中，并将私钥保存到/etc/ssl/private/private.key文件中
+
+# 赋予执行权限
+chmod -R +x /etc/ssl/private/
+
+```
+
+4.把chatgpt-web 项目的证书和私钥放置在 `docker-compose\nginx\ssl` 目录下
+
+5.把 Portainer 容器管理工具项目的证书和私钥放置在   `docker-compose\nginx\portainer_ssl` 目录下
 
 注意：如果你的文件目录和我的位置不一样的情况你需要自行修改 docker-compose.yml -volumes 挂载的数据卷目录，和我的保持一致，你不需要修改，省很多事
 
@@ -47,10 +136,9 @@ docker-compose\nginx\portainer.conf
 - docker-compose\nginx\portainer.conf 是 Portainer 项目的nginx 配置 
 
 
-```
-暂时没用上，不用管
+```conf
+# 暂时没用上，不用管
 docker-compose\nginx\cockpit.conf
-
 ```
 
 #### 启动项目
@@ -60,6 +148,7 @@ docker-compose\nginx\cockpit.conf
 ```
 docker-compose up -d
 ```
+浏览器输入 chat.example.com 即可进入你的chatGPT-web 项目
 
 当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，然后按照提示设置账户名和密码，一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose start`
 
