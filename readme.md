@@ -155,7 +155,7 @@ docker-compose up -d
 ```
 浏览器输入 chat.example.com 即可进入你的chatGPT-web 项目
 
-当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，然后按照提示设置账户名和密码，一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose start`
+当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，然后按照提示设置账户名和密码，一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose restart`
 
 
 #### Portainer是什么？
