@@ -46,8 +46,9 @@ docker-compose\nginx\portainer.conf
 - docker-compose\nginx\nginx.conf 是 chatGPT-WEB 项目的nginx 配置 
 - docker-compose\nginx\portainer.conf 是 Portainer 项目的nginx 配置 
 
-暂时没用上，不用管
+
 ```
+暂时没用上，不用管
 docker-compose\nginx\cockpit.conf
 
 ```
