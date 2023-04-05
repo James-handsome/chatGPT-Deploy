@@ -3,7 +3,7 @@
 1.将本目录放置在你linux 服务器的 /home/chatgpt 下面, 如图所示
 推荐和我放置在同一目录
 
-<img src="./pathDemo.png" alt="Alt text" title="Optional title"/>
+<img src="https://jameshao.pro/upload/2023/04/pathDemo.png" alt="Alt text" title="Optional title"/>
 
 #### 服务器环境准备
 
