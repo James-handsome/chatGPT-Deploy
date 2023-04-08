@@ -18,23 +18,12 @@ https://yeasy.gitbook.io/docker_practice/install/ubuntu
 
 1. 安装Docker
 
-在Ubuntu上，可以使用以下命令安装Docker：
+可以使用以下shell命令安装Docker：
 
 ```
-sudo apt update
-sudo apt install docker.io
-```
+curl -fsSL https://get.docker.com -o get-docker.sh 
+sh get-docker.sh
 
-在CentOS上，可以使用以下命令安装Docker：
-
-```
-sudo yum install docker
-```
-
-在macOS上，可以使用Homebrew包管理器来安装Docker：
-
-```
-brew install docker
 ```
 
 2. 启动Docker服务
@@ -43,7 +32,7 @@ brew install docker
 
 ```
 sudo systemctl start docker   # Ubuntu/CentOS
-open /Applications/Docker.app # macOS
+
 ```
 
 3. 安装Docker Compose
