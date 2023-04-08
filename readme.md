@@ -1,6 +1,8 @@
-### 部署教程
+### 部署教程  
 
-1.将本目录放置在你linux 服务器的 /home/chatgpt 下面, 如图所示
+项目源代码来自 https://github.com/Chanzhaoyu/chatgpt-web
+
+将本目录放置在你linux 服务器的 /home/chatgpt 下面, 如图所示
 推荐和我放置在同一目录
 
 <img src="https://jameshao.pro/upload/2023/04/pathDemo.png" alt="Alt text" title="Optional title"/>
