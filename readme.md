@@ -65,6 +65,11 @@ docker-compose --version
 - chat.example.com  解析到你的服务器ip 用于部署 chatgpt-web
 - pt.example.com    解析到你的服务器ip 用于部署 portainer
 
+![0e956000ca21](https://jameshao.pro/upload/2023/04/92a8b0e956000ca21312d20f0b2a8d8.png)
+![21312d20f0b2](https://jameshao.pro/upload/2023/04/92a8b0e956000ca21312d20f0b2a8d8.png)
+
+
+
 3.使用acme申请`ssl`证书
 
 ```sh
