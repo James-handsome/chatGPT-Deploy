@@ -45,12 +45,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-在macOS上，可以使用以下命令安装Docker Compose：
-
-```
-brew install docker-compose
-```
-
 4. 检查安装
 
 最后，您可以使用以下命令检查Docker和Docker Compose是否成功安装：
@@ -142,14 +136,26 @@ docker-compose\nginx\cockpit.conf
 ```
 docker-compose up -d
 ```
+
+#### 启动成功
+当你看到如下结果，说明你启动成功了
+![20230408112350](https://jameshao.pro/upload/2023/04/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230408112350.png)
+
 浏览器输入 chat.example.com 即可进入你的chatGPT-web 项目
 
-当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，然后按照提示设置账户名和密码，一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose restart`
+#### 设置 Portainer  开源的容器管理工具
+当你启动成功之后你需要打开浏览器输入 `pt.example.com` 进入到你的 Portainer 项目，
+首次登陆需要注册用户，给admin用户设置密码
+一定要快。他是有时间限制的，超时进不去的，超时了你只能重启容器 `docker-compose restart`
+
+![Portainer-project](https://jameshao.pro/upload/2023/04/ui%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81.png)
 
 
 #### Portainer是什么？
 
 Portainer是一款免费且开源的容器管理工具，可以用来简化Docker容器的部署、管理和监控。Portainer提供一个易于使用的Web UI，使用户能够轻松地管理单个Docker主机或群集中的多个Docker节点。Portainer支持几乎所有Docker API，并为容器、镜像、网络、卷等对象提供了可视化的管理界面。此外，Portainer还支持Swarm模式，并提供了一些高级功能，如模板和堆栈管理、访问控制等。
+
+!['0xjfdsa44fds'](https://jameshao.pro/upload/2023/04/image.png);
 
 
 #### Docker Compose 是什么？如何使用
