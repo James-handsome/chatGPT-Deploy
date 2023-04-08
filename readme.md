@@ -16,7 +16,7 @@ https://yeasy.gitbook.io/docker_practice/install/ubuntu
 
 以下是快速安装Docker和Docker Compose的步骤：
 
-1. 安装Docker
+1.安装Docker
 
 可以使用以下shell命令安装Docker：
 
@@ -26,7 +26,7 @@ sh get-docker.sh
 
 ```
 
-2. 启动Docker服务
+2.启动Docker服务
 
 在安装完Docker后，可以使用以下命令启动Docker服务：
 
@@ -35,7 +35,7 @@ sudo systemctl start docker   # Ubuntu/CentOS
 
 ```
 
-3. 安装Docker Compose
+3.安装Docker Compose
 
 在Linux系统上，可以使用以下命令安装Docker Compose：
 
@@ -45,7 +45,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-4. 检查安装
+4.检查安装
 
 最后，您可以使用以下命令检查Docker和Docker Compose是否成功安装：
 
