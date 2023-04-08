@@ -59,11 +59,11 @@ docker-compose --version
 
 #### 域名和证书准备
 
-1.申请域名，推荐 https://www.namesilo.com/ 去这里申请，价格很低
+1.申请域名，推荐 `https://www.namesilo.com/` 去这里申请，价格很低
 
-2.做好域名解析， 以下是推荐解析
-- chat.example.com  解析到你的服务器ip 用于部署 chatgpt-web
-- pt.example.com    解析到你的服务器ip 用于部署 portainer
+2.推荐把域名托管到 cloudflare 不会操作的可以去网站查下教程，托管好做好域名解析， 以下是推荐解析
+- `chat.example.com` 解析到你的服务器ip 用于部署 `chatgpt-web`
+- `pt.example.com`    解析到你的服务器ip 用于部署 `portainer`
 
 ![0e956000ca21](https://jameshao.pro/upload/2023/04/92a8b0e956000ca21312d20f0b2a8d8.png)
 ![21312d20f0b2](https://jameshao.pro/upload/2023/04/c059ae9481ccc1d00065f127e032963.png)
